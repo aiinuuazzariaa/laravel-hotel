@@ -15,20 +15,21 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id('id_order');
-            $table->integer('order_number');
-            $table->string('order_name');
-            $table->string('customer_email')->unique();
+            $table->string('order_number');
+            $table->string('customer_name');
+            $table->string('customer_email');
             $table->timestamp('order_date');
             $table->date('check_in_date');
             $table->date('check_out_date');
             $table->string('guest_name');
             $table->integer('room_total');
             $table->unsignedBigInteger('id_room_type');
-            $table->enum('order_status',['new','check_in','check_out']);
-            $table->unsignedBigInteger('id_user');
+            $table->integer('total')->nullable();
+            $table->enum('order_status', ['new', 'check_in', 'check_out']);
+            $table->unsignedBigInteger('id_user')->nullable();
 
             $table->foreign('id_room_type')->references('id_room_type')->on('room_types');
-            $table->foreign('id_user')->references('id_user')->on('users');
+            $table->foreign('id_user')->references('id_user')->on('user');
         });
     }
 

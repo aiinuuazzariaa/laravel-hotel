@@ -19,8 +19,9 @@ class Order_Detail extends Model
         'price_detail',
     ];
 
-    public function class() {
-        return $this->belongsTo('App\Models\order','id_order');
-        return $this->belongsTo('App\Models\room','id_room');
+    public function class()
+    {
+        return $this->belongsTo('App\Models\order', 'id_order');
+        return $this->belongsTo('App\Models\room', 'id_room');
     }
 }

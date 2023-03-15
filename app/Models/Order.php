@@ -14,7 +14,7 @@ class Order extends Model
 
     protected $fillable = [
         'order_number',
-        'order_name',
+        'customer_name',
         'customer_email',
         'order_date',
         'check_in_date',
@@ -22,12 +22,14 @@ class Order extends Model
         'guest_name',
         'room_total',
         'id_room_type',
+        'total',
         'order_status',
         'id_user',
     ];
 
-    public function class() {
-        return $this->belongsTo('App\Models\room_type','id_room_type');
-        return $this->belongsTo('App\Models\User','id_user');
+    public function class()
+    {
+        return $this->belongsTo('App\Models\room_type', 'id_room_type');
+        return $this->belongsTo('App\Models\User', 'id_user');
     }
 }

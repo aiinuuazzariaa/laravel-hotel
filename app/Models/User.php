@@ -11,17 +11,18 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable implements JWTSubject
 {
     use HasFactory;
-
     protected $table = 'user';
-    protected $primaryKey = 'user_id';
+    protected $primaryKey = 'id_user';
     public $timestamps = false;
     protected $fillable = ['user_name', 'image', 'email', 'password', 'role'];
 
-    public function getJWTIdentifier(){
+    public function getJWTIdentifier()
+    {
         return $this->getKey();
     }
 
-    public function getJWTCustomClaims(){
-        return[];
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }
